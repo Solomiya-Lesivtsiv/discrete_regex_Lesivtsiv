@@ -26,7 +26,6 @@ class StartState(State):
     next_states: list[State] = []
 
     def __init__(self):
-        self.next_states = []
         super().__init__()
 
     def check_self(self, char):
@@ -37,8 +36,7 @@ class TerminationState(State):
     next_states: list[State] = []
 
     def __init__(self):
-        self.next_states = []
-
+        super().__init__()
     def check_self(self, char):
         return False  # Implement
 
@@ -51,7 +49,6 @@ class DotState(State):
     next_states: list[State] = []
 
     def __init__(self):
-        self.next_states = []
         super().__init__()
 
     def check_self(self, char: str):
@@ -67,7 +64,6 @@ class AsciiState(State):
     curr_sym = ""
 
     def __init__(self, symbol: str) -> None:
-        self.next_states = []
         self.curr_sym = symbol  # Implement
 
     def check_self(self, curr_char: str) -> bool:
@@ -79,7 +75,6 @@ class StarState(State):
     next_states: list[State] = []
 
     def __init__(self, checking_state: State):
-        self.next_states = []
         super().__init__()
         self.checking_state = checking_state
 
@@ -91,7 +86,6 @@ class PlusState(State):
     next_states: list[State] = []
 
     def __init__(self, checking_state: State):
-        self.next_states = []
         super().__init__()
         self.checking_state = checking_state
 
@@ -103,7 +97,6 @@ class RegexFSM:
     curr_state: State = StartState()
 
     def __init__(self, regex_expr: str) -> None:
-        self.curr_state = StartState()
         prev_state = self.curr_state
         last_state = self.curr_state
 
